@@ -1,0 +1,97 @@
+@import 'normalize.styl'
+@import 'font.styl'
+
+gris = #a1a1a1
+light-gris = #d1d1d1
+lighter-gris = #f1f1f1
+verde = #50A650
+verde-oscuro = #479947
+
+html
+	font-family Raleway
+header
+	padding 0 0 1em 0
+	position relative
+	h1
+		margin .5em 1em 0 1em
+	h2
+		margin 0em 1.5em 0 2em
+	nav
+		position absolute
+		right 2em
+		top 1em
+		ul
+			margin 0
+			list-style none
+			li
+				display inline-block
+				margin 0 1em
+				a
+					color gris
+					text-decoration none
+				a::before
+					display none
+					margin 0 .2em
+			li:hover
+				a
+					color black
+				a::before
+					display inline-block
+aside
+	display inline-block
+	vertical-align top
+	width 10%
+
+.anuncios
+	display inline-block
+	text-align center
+	width 85%
+	.anuncio
+		border 1px solid light-gris
+		border-radius .4em
+		display inline-block
+		margin .5em
+		padding .5em .1em
+		text-align left
+		width 20%
+		h3
+			margin 0 2.5% 0
+			width 95%
+		figure
+			margin 0
+			overflow hidden
+			width 100%
+			img
+				width 100%
+		ul
+			list-style none
+			.precio
+				color red
+.forms
+	text-align center
+	form
+		border 1px solid gris
+		border-radius .4em
+		background lighter-gris
+		box-shadow 1px 1px .4em rgba(0,0,0,.5)
+		margin 1em auto
+		padding-bottom 1em
+		width 50%
+		input
+			display inline-block
+			border 1px solid gris
+			border-radius .4em
+			margin .5em 0
+			padding .5em 1em
+			width 80%
+		input[type="submit"]
+			background verde
+			border 1px solid verde-oscuro
+			color white
+			width 30%
+// Clases utilitarias
+.border
+	border-bottom 1px solid gris
+.error
+	color red
+	font-size .8em

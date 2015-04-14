@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', ['as'=>'home','uses'=>'WelcomeController@index']);
+Route::get('/register', ['as'=>'register','uses'=>'UserController@create']);
+Route::post('/insert', ['as'=>'insert-user','uses'=>'UserController@insert']);
+Route::get('/login', ['as'=>'login','uses'=>'UserController@login']);
+
+Route::post('/authenticate', ['as'=>'authenticate','uses'=>'Auth\AuthController@authenticate']);
+
 
 Route::get('home', 'HomeController@index');
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

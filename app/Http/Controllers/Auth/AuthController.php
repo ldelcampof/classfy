@@ -5,6 +5,10 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Auth;
+use Input;
+use Redirect;
+
 class AuthController extends Controller {
 
 	/*
@@ -34,5 +38,17 @@ class AuthController extends Controller {
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
+
+	public function authenticate()
+    {
+    	$data = Input::all();
+    	var_dump(Auth::attempt(['email' => $data['email'], 'password' => $data['password']]));
+        if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']]))
+        {
+            return redirect()->route('home');
+        }else{
+        	return redirect()->back()->withInput();
+        }
+    }
 
 }
